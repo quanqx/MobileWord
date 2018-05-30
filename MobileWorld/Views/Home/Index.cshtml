@@ -1,0 +1,102 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<banner>
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="~/Images/banner1.jpg" alt="Banner1" style="width:100%;">
+			</div>
+
+			<div class="item">
+				<img src="~/Images/banner2.jpg" alt="Banner2" style="width:100%;">
+			</div>
+
+			<div class="item">
+				<img src="~/Images/banner3.jpg" alt="Banner3" style="width:100%;">
+			</div>
+		</div>
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	<div class="row newProduce">
+
+		@Html.ActionLink("Download", "DownLoad", "Home")
+
+		<h2>SẢN PHẨM MỚI</h2>
+		<div class="col-xs-12 col-md-12 list-new-produce">
+			@for (int i = 0; i < ViewBag.listSanPhamMoi.Count; i++)
+			{
+				<div class="col-md-3 col-xs-12">
+					<div class=" col-sm-12 col-xs-12 newProduce-container ">
+						<img src="~/Images/imgSanPham/@ViewBag.listSanPhamMoi[i].HinhAnh" alt="@ViewBag.listSanPhamMoi[i].HinhAnh" class="image-item-produce" style="width:100%">
+						<div style="width: 100%; text-align: center;">
+							<h4 style="overflow: hidden;">@ViewBag.listSanPhamMoi[i].TenSP</h4>
+							<h3 style="color: red; font-weight: bold; overflow: hidden;">@String.Format("{0:0,0}", ViewBag.listSanPhamMoi[i].DonGia) vnđ</h3>
+						</div>
+						<div class="newProduct-container-middle">
+							<div class="produce-detail">
+								<p>HDH: @ViewBag.listSanPhamMoi[i].HDH</p>
+								<p>CPU: @ViewBag.listSanPhamMoi[i].CPU</p>
+								<p>Bộ nhớ: @ViewBag.listSanPhamMoi[i].BoNhoTrong</p>
+								<p>Pin: @ViewBag.listSanPhamMoi[i].Pin</p>
+							</div>
+							<div class="newProduct-container-middle-text">
+								@Html.ActionLink("Xem chi tiết", "detailProduct", "Home", new { MaSP = ViewBag.listSanPhamMoi[i].MaSP }, new { @class = "a" });
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+	<div class="row newProduce">
+		<h2>SẢN BÁN CHẠY</h2>
+		<div class="col-xs-12 col-md-12 list-new-produce">
+			@for (int i = 0; i < ViewBag.listSanPhamBanChay.Count; i++)
+			{
+				<div class="col-md-3 col-xs-12">
+					<div class=" col-sm-12 col-xs-12 newProduce-container ">
+						<img src="~/Images/imgSanPham/@ViewBag.listSanPhamBanChay[i].HinhAnh" alt="@ViewBag.listSanPhamBanChay[i].HinhAnh" class="image-item-produce" style="width:100%">
+						<div style="width: 100%; text-align: center;">
+							<h4 style="overflow: hidden;">@ViewBag.listSanPhamBanChay[i].TenSP</h4>
+							<h3 style="color: red; font-weight: bold; overflow: hidden;">@String.Format("{0:0,0}", ViewBag.listSanPhamBanChay[i].DonGia) vnđ</h3>
+						</div>
+						<div class="newProduct-container-middle">
+							<div class="produce-detail">
+								<p>HDH: @ViewBag.listSanPhamBanChay[i].HDH</p>
+								<p>CPU: @ViewBag.listSanPhamBanChay[i].CPU</p>
+								<p>Bộ nhớ: @ViewBag.listSanPhamBanChay[i].BoNhoTrong</p>
+								<p>Pin: @ViewBag.listSanPhamBanChay[i].Pin</p>
+							</div>
+							<div class="newProduct-container-middle-text">
+								@Html.ActionLink("Xem chi tiết", "detailProduct", "Home", new { MaSP = ViewBag.listSanPhamBanChay[i].MaSP }, new { @class = "a" });
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</banner>
+
+

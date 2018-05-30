@@ -1,0 +1,43 @@
+﻿
+@{
+	ViewBag.Title = "Search";
+	Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<MobileWorld.Entities.SanPham>
+<div class="row newProduce">
+	<h2>Tìm kiếm</h2>
+	@if(ViewBag.message != null)
+	{
+		<h3 style="margin-left:20px;">@ViewBag.message</h3>
+	}
+	<div class="col-xs-12 col-md-12 list-new-produce">
+		@foreach (MobileWorld.Entities.SanPham item in Model)
+		{
+			<div class="col-md-3 col-xs-12">
+				<div class=" col-sm-12 col-xs-12 newProduce-container ">
+					<img src="~/Images/imgSanPham/@item.HinhAnh" alt="@item.HinhAnh" class="image-item-produce" style="width:100%">
+					<div style="width: 100%; text-align: center;">
+						<h4 style="overflow: hidden;">@item.TenSP</h4>
+						<h3 style="color: red; font-weight: bold; overflow: hidden;">@String.Format("{0:0,0}", item.DonGia) vnđ</h3>
+					</div>
+					<div class="newProduct-container-middle">
+						<div class="produce-detail">
+							<p>HDH: @item.HDH</p>
+							<p>CPU: @item.CPU</p>
+							<p>Bộ nhớ: @item.BoNhoTrong</p>
+							<p>Pin: @item.Pin</p>
+						</div>
+						<div class="newProduct-container-middle-text">
+							@Html.ActionLink("Xem chi tiết", "detailProduct", "Home", new { MaSP = item.MaSP }, new { @class = "a" });
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, pageNum => Url.Action("Search", new { search = ViewBag.search, page = pageNum }))
+

@@ -1,0 +1,27 @@
+﻿@model MobileWorld.Entities.BaoHanh
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BaoHanh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ChiTietBH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChiTietBH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaBaoHanh }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

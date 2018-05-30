@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model List<MobileWorld.Models.GioHang>
+<style>
+	.list-dat-hang{
+		padding: 20px;
+	}
+
+		.list-dat-hang > table {
+			width: 100%;
+			border: 1px solid black;
+		}
+
+	.gio-hang-thead {
+		background-color: black;
+		color: white;
+		width: 100%;
+	}
+
+		.gio-hang-thead > th {
+			padding: 20px;
+			text-align: center;
+		}
+
+	.gio-hang-td > td {
+		text-align: center;
+	}
+
+		.gio-hang-td > td > img {
+			width: 80px;
+		}
+
+	.col-tong-tien {
+		background-color: antiquewhite;
+		padding: 10px;
+	}
+	.col-tong-tien>span{
+		color: red;
+	}
+
+	.col-dat-hang {
+		text-align: center;
+	}
+
+	.info-nguoi-mua{
+		padding: 20px;
+	}
+	.info-nguoi-mua>table{
+		width: 100%;
+		border: 1px solid black;
+	}
+	.input-field{
+		padding: 5px;
+	}
+	.input-field>input{
+		width: 100%;
+		border: 1px solid red;
+		padding: 5px;
+		border-radius: 5px;
+	}
+	.title-field {
+		font-weight: bold;
+		text-align: right;
+	}
+	.title-field>span{
+		color: red;
+	}
+	.btnTiepTuc{
+		padding: 5px 10px;
+		background-color: orange;
+		color: white;
+		border: 0;
+	}
+	.btnTiepTuc:hover{
+		color: red;
+	}
+	.div-button-tiep-tuc{
+		text-align: right;
+		padding-top: 10px;
+	}
+</style>
+
+<div class="list-dat-hang">
+	<h2>Đặt hàng</h2>
+
+	<table>
+		<tr class="gio-hang-thead">
+			<th>Ảnh</th>
+			<th>Tên sản phẩm</th>
+			<th>Giá</th>
+			<th>Số lượng</th>
+			<th>Thành tiền</th>
+		</tr>
+		@if (Model != null)
+		{
+			foreach (MobileWorld.Models.GioHang item in Model)
+			{
+				<tr class="gio-hang-td">
+					<td><img src="~/Images/imgSanPham/@item.HinhAnh" /></td>
+					<td>@item.TenSP</td>
+					<td>@string.Format("{0:0,0}", item.DonGia)</td>
+					<td>@item.SoLuong</td>
+					<td>@string.Format("{0:0,0}", item.ThanhTien)</td>
+				</tr>
+			}
+		}
+		<tr>
+			<td colspan="5" class="col-tong-tien">
+				<b>Tổng tiền:</b> <span>@String.Format("{0:0,0}", ViewBag.TongTien) vnđ</span>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="info-nguoi-mua">
+	<form action="/GioHang/AddDonHang" method="post">
+		<table>
+			<tr>
+				<th>Thông tin người mua</th>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Họ tên<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Họ tên" name="HoTen"  id="HoTen" value="@(ViewBag.Login!=null?ViewBag.Login.HoTen:"")" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Địa chỉ<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Địa chỉ" name="DiaChi" id="DiaChi" value="@(ViewBag.Login!=null?ViewBag.Login.DiaChi:"")" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Điện thoại<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Điện thoại" name="SDT" id="SDT" value="@(ViewBag.Login!=null?ViewBag.Login.SDT:"")" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Email<span>*</span></td>
+				<td class="input-field"><input type="email" placeholder="Email" name="Email" id="Email" value="@(ViewBag.Login!=null?ViewBag.Login.Email:"")" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Ngày sinh<span>*</span></td>
+				<td class="input-field"><input type="datetime" placeholder="Ngày sinh" name="NgaySinh" id="NgaySinh" value="@(ViewBag.Login!=null?ViewBag.Login.NgaySinh:"")" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Giới tính<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Giới tính" name="GioiTinh" id="GioiTinh" value="@(ViewBag.Login!=null?ViewBag.Login.GioiTinh:"")" /></td>
+			</tr>
+		</table>
+		<div class="div-button-tiep-tuc">
+			<button class="btnTiepTuc" type="submit">Tiếp tục</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "AccountInfo";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model List<MobileWorld.Models.GioHang>
+<style>
+	.list-dat-hang {
+		padding: 20px;
+	}
+
+	.list-dat-hang > table {
+		width: 100%;
+		border: 1px solid black;
+	}
+
+	.gio-hang-thead {
+		background-color: black;
+		color: white;
+		width: 100%;
+	}
+
+	.gio-hang-thead > th {
+		padding: 20px;
+		text-align: center;
+	}
+
+	.gio-hang-td > td {
+		text-align: center;
+	}
+
+	.gio-hang-td > td > img {
+		width: 80px;
+	}
+</style>
+
+<div class="list-dat-hang">
+	<h2>Đơn hàng của tôi</h2>
+
+	<table>
+		<tr class="gio-hang-thead">
+			<th>Hình Ảnh</th>
+			<th>Tên sản phẩm</th>
+			<th>Giá</th>
+			<th>Số lượng</th>
+			<th>Thành tiền</th>
+		</tr>
+		@if (Model != null)
+		{
+			foreach (MobileWorld.Models.GioHang item in Model)
+			{
+				<tr class="gio-hang-td">
+					<td><img src="~/Images/imgSanPham/@item.HinhAnh" /></td>
+					<td>@item.TenSP</td>
+					<td>@string.Format("{0:0,0}", item.DonGia)</td>
+					<td>@item.SoLuong</td>
+					<td>@string.Format("{0:0,0}", item.ThanhTien)</td>
+				</tr>
+			}
+		}
+	</table>
+</div>
+

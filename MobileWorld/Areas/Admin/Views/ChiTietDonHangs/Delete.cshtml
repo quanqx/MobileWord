@@ -1,0 +1,24 @@
+﻿@model MobileWorld.Entities.ChiTietDonHang
+
+@{
+	ViewBag.Title = "Delete";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="color: red;">Xóa</h1>
+
+<h3>Bạn muốn xóa nó?</h3>
+<div>
+	<h4>ChiTietDonHang</h4>
+	<hr />
+	
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Xóa" class="btn btn-default" /> |
+			@Html.ActionLink("<<Trở về", "Index")
+		</div>
+	}
+</div>

@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model List<MobileWorld.Models.GioHang>
+
+<style>
+	.list-gio-hang {
+		padding: 20px;
+	}
+
+	.list-gio-hang>table{
+		width: 100%;
+		border: 1px solid black;
+	}
+
+	.gio-hang-thead {
+		background-color: black;
+		color: white;
+		width: 100%;
+	}
+
+		.gio-hang-thead > th {
+			padding: 20px;
+			text-align: center;
+		}
+	.gio-hang-td>td{
+		text-align: center;
+	}
+	.gio-hang-td > td > img {
+		width: 80px;
+	}
+	.col-tong-tien{
+		background-color: antiquewhite;
+		padding: 10px;
+	}
+	.fa-edit{
+		font-size: 24px;
+		color: red;
+	}
+	.fa-trash{
+		font-size: 36px;
+		color: red;
+	}
+	.gio-hang-td>td>a>i{
+		padding: 0 10px;
+	}
+	.col-dat-hang{
+		text-align: center;
+	}
+</style>
+
+<div class="list-gio-hang">
+	<h2>Giỏ hàng</h2>
+
+	<table>
+		<tr class="gio-hang-thead">
+			<th>Ảnh</th>
+			<th>Tên sản phẩm</th>
+			<th>Giá</th>
+			<th>Số lượng</th>
+			<th>Thành tiền</th>
+			<th>Xóa</th>
+		</tr>
+		@if (Model != null)
+		{
+			foreach (MobileWorld.Models.GioHang item in Model)
+			{
+			<tr class="gio-hang-td">
+				<td><img src="~/Images/imgSanPham/@item.HinhAnh" /></td>
+				<td>@item.TenSP</td>
+				<td>@string.Format("{0:0,0}", item.DonGia)</td>
+				@using (Html.BeginForm("UpdateGioHang", "GioHang", new { MaSP = item.MaSP}))
+				{
+				<td>
+					<input type="number" id="txtSoLuong" name="txtSoLuong" value="@item.SoLuong"/>
+					<button type="submit" style="background-color: transparent; border: 0;" data-toggle="tooltip" title="Chỉnh sửa" ><i class="fa fa-edit"></i></button>
+				</td>
+				}
+				<td>@string.Format("{0:0,0}", item.ThanhTien)</td>
+				<td>
+					@*<a href="@Url.Action("UpdateGioHang", "GioHang", new { MaSP = item.MaSP, SoLuong = item.SoLuong })">
+						<i class="fa fa-edit"></i>
+					</a>*@
+					<a href="@Url.Action("DeleteGioHang", "GioHang", new { MaSP = item.MaSP })">
+						<i class="fa fa-trash"></i>
+					</a>
+				</td>
+			</tr>
+			}
+		}
+		<tr>
+			<td colspan="5" class="col-tong-tien"><b>Tổng tiền:</b> @String.Format("{0:0,0}", ViewBag.TongTien) vnđ</td>
+			<td class="col-tong-tien col-dat-hang">
+				@using (Html.BeginForm("DatHang", "GioHang"))
+				{
+					<input type="submit" value="Đặt hàng" id="btnDatHang"/>
+				}
+			</td>
+		</tr>
+	</table>
+</div>

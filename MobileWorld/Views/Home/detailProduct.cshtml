@@ -1,0 +1,69 @@
+﻿
+@{
+	ViewBag.Title = "detailProduct";
+	Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model MobileWorld.Entities.SanPham
+<div class="row">
+	<div class="col-detail-image col-md-6 col-xs-12">
+		<img src="~/Images/imgSanPham/@Model.HinhAnh"/>
+	</div>
+	<div class="col-detail col-md-6 col-xs-12">
+		<h1 style="color: blue;">@Model.TenSP</h1>
+		<h3 style="color: red;">@String.Format("{0:0,0}", Model.DonGia) vnđ</h3>
+		<h4 style="color: blue;">@Model.TinhTrang</h4>
+		<h3><span style="color: blue;">Màu sắc:</span> @Model.MauSac</h3>
+		<h3 style="color: blue;">Khuyến mãi: <span style="color: black;">@ViewBag.KMSanPham</span></h3>
+		<div class="table-detail">
+			<table>
+				<tr style="border-top: 2px solid orange; background-color: beige;">
+					<th colspan="2"><h4>Thông tin chi tiết</h4></th>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Thân máy</td>
+					<td>@Model.ThanMay</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Màn hình</td>
+					<td>@Model.ManHinh</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Hệ điều hành</td>
+					<td>@Model.HDH</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">CPU</td>
+					<td>@Model.CPU</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Bộ nhớ máy</td>
+					<td>@Model.BoNhoTrong</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Bộ nhớ mở rộng</td>
+					<td>@Model.BoNhoNgoai</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Camera chính</td>
+					<td>@Model.CameraChinh</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Camera phụ</td>
+					<td>@Model.CameraPhu</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Bộ nhớ mở rộng</td>
+					<td>@Model.BoNhoNgoai</td>
+				</tr>
+				<tr class="table-tr">
+					<td class="td1">Pin</td>
+					<td>@Model.Pin</td>
+				</tr>
+			</table>
+		</div>
+		<div class="button-muahang row">
+			<a class="col-md-6 col-xs-12" href="@Url.Action("AddGioHang", "GioHang", new { MaSP = Model.MaSP })">Đặt mua hàng</a>
+			<a class="col-md-6 col-xs-12" href="">Mua trả góp</a>
+		</div>
+	</div>
+</div>

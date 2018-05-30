@@ -1,0 +1,46 @@
+﻿<div footer-container class="row">
+	<div class="footer-one col-md-3 col-xs-12">
+		<img src="~/Images/visa_mastercard.gif" />
+		<h4>Hỗ trợ thanh toán với</h4>
+		<div>
+			<img class="footer-one-img" src="~/Images/visa_footer.png" />
+			<img class="footer-one-img" src="~/Images/pp.png" />
+			<img class="footer-one-img" src="~/Images/master.png" />
+		</div>
+	</div>
+	<div class="footer-two col-md-3 col-xs-12">
+		<h3 style="color: orangered;">
+			- Khu Vực TP. Hồ Chí Minh
+		</h3>
+		<p style="color: orange;">
+			692 Lê Hồng Phong P10 - Q10
+		</p>
+		<p><span style="font-weight: bold;">Hotline:</span>   0917.118.789</p>
+		<div>
+			<img src="~/Images/fb.ico" />
+			<a href="https://www.facebook.com/monoQ.Null">Facebook</a>
+		</div>
+		<div>
+			<img src="~/Images/tinhte.jpg" />
+			<a href="">Tinh tế</a>
+		</div>
+	</div>
+	<div class="footer-three col-md-3 col-xs-12">
+		<h3 style="color: red;">Danh mục sản phẩm nổi bật</h3>
+		<a href="">Điện thoại</a>
+		@foreach (MobileWorld.Entities.NhanHieu nhanHieu in ViewBag.listDienThoai)
+		{
+			<ul style="list-style: none;">
+				<li><a href="@Url.Action("SanPhamByNhanHieu", "Home", new { NhanHieu = nhanHieu.MaNhanHieu})">@nhanHieu.TenNhanHieu</a></li>
+			</ul>
+		}
+	</div>
+	<div class="footer-four col-md-3 col-xs-12">
+		<h3 style="color:red;">Thông tin tài khoản</h3>
+		<p>
+			<span style="color: orange;">TK NH Ngoại thương Vietcombank</span><br />
+			Số tài khoản: <span style="font-weight: bold;">0421000477580</span><br />
+			Chủ TK: Phạm Thị Kiều Diễm
+		</p>
+	</div>
+</div>

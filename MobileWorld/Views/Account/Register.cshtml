@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+	.info {
+		padding: 20px;
+	}
+
+		.info > table {
+			width: 100%;
+			border: 1px solid black;
+		}
+
+	.input-field {
+		padding: 5px;
+	}
+
+		.input-field > input {
+			width: 100%;
+			border: 1px solid red;
+			padding: 5px;
+			border-radius: 5px;
+		}
+
+	.title-field {
+		font-weight: bold;
+		text-align: right;
+	}
+
+		.title-field > span {
+			color: red;
+		}
+		.btnSubmit{
+			border: 1px solid red;
+			border-radius: 5px;
+			padding: 10px;
+			color: darkcyan;
+			background-color: yellow;
+			margin-bottom: 10px;
+		}
+		.btnSubmit:hover {
+			color: red;
+		}
+</style>
+
+<div>
+	<form class="info" action="/Account/Register" method="post">
+		<h2>Đăng kí</h2>
+		@if(ViewBag.message != null)
+		{
+			<p>@ViewBag.message</p>
+		}
+		<table>
+			<tr>
+				<td class="title-field col-md-2">Email<span>*</span></td>
+				<td class="input-field"><input type="email" placeholder="Email" name="Email" id="Email" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Mật khẩu<span>*</span></td>
+				<td class="input-field"><input type="password" placeholder="Mật khẩu" name="Password" id="Password" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Xác nhận mật khẩu<span>*</span></td>
+				<td class="input-field"><input type="password" placeholder="Xác nhận mật khẩu" name="RepeatPass" id="RepeatPass" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Họ tên<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Họ tên" name="HoTen" id="HoTen" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Địa chỉ<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Địa chỉ" name="DiaChi" id="DiaChi" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Điện thoại<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Điện thoại" name="SDT" id="SDT" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Ngày sinh<span>*</span></td>
+				<td class="input-field"><input type="datetime" placeholder="Ngày sinh" name="NgaySinh" id="NgaySinh" /></td>
+			</tr>
+			<tr>
+				<td class="title-field col-md-2">Giới tính<span>*</span></td>
+				<td class="input-field"><input type="text" placeholder="Giới tính" name="GioiTinh" id="GioiTinh" /></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="8">
+					<input class="btnSubmit" type="submit" value="Đăng kí"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>

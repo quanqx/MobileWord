@@ -1,0 +1,74 @@
+﻿
+@{
+	ViewBag.Title = "Login";
+	Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+
+	.frmLogin {
+		width: 25%;
+		margin: 20px auto 0px auto;
+		background-color: #F2ECEC;
+	}
+
+	.divImg {
+		text-align: center;
+	}
+
+		.divImg > img {
+			width: 100px;
+			height: 100px;
+		}
+
+	.txt {
+		width: 75%;
+		height: 30px;
+		margin: 3px 0px 5px 12%;
+		padding: 0px 5px 0px 5px;
+		border: solid 1px #DCD6D6;
+		border-radius: 5px;
+	}
+
+	#btnSignIn {
+		border: 0px;
+		border-radius: 5px;
+		background-color: blue;
+		color: white;
+		margin: 5px 0px 0px 12%;
+		width: 78%;
+		height: 35px;
+	}
+
+	#chkRemember {
+		margin: 5px 0px 5px 12%;
+	}
+
+	#lblSignUp {
+		color: blue;
+		margin-left: 12%;
+		text-decoration: none;
+	}
+	.message{
+		color: red;
+		width: 100%;
+		text-align: right;
+	}
+</style>
+<form action="/Account/Login" method="post">
+	<div class="frmLogin">
+		<div class="divImg">
+			<img src="~/Images/user.ico">
+		</div>
+		<div>
+			<input type="text" placeholder="Email" class="txt" id="txtMail" name="txtMail" required>
+			<input type="password" placeholder="Password" class="txt" id="txtPass" name="txtPass" required>
+			@if(ViewBag.message != null)
+			{
+				<p class="message">Viewbag.message</p>
+			}
+			<input type="checkbox" id="chkRemember"> Remember me
+			<input type="submit" value="Sign in" id="btnSignIn">
+			@Html.ActionLink("Register", "validateLogin", "Login", new { style = "text-decoration: none" })
+		</div>
+	</div>
+</form>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileWorld", "MobileWorld\MobileWorld.csproj", "{51B7FF9B-61E2-4259-84A7-8C80C97B9B1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51B7FF9B-61E2-4259-84A7-8C80C97B9B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B7FF9B-61E2-4259-84A7-8C80C97B9B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B7FF9B-61E2-4259-84A7-8C80C97B9B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B7FF9B-61E2-4259-84A7-8C80C97B9B1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA2F7B94-4A96-4545-9A0D-77AD66C8428F}
+	EndGlobalSection
+EndGlobal

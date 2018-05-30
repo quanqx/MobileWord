@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MobileWorld.Entities.Loai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="color: red;">Loại</h1>
+
+<p>
+    @*@Html.ActionLink("Tạo mới", "Create")*@
+	<a href="@Url.Action("Create","Loais")"><i class="fa fa-plus-circle"></i> Tạo mới</a>
+</p>
+<table class="table">
+    <tr>
+        <th colspan="2" style="color: red; background-color: antiquewhite;">
+            Tên Loại
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLoai)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.MaLoai }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaLoai }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaLoai })*@
+			<a href="@Url.Action("Edit", "Loais", new { id = item.MaLoai })"><i style="font-size: 36px;" class="fa fa-edit"></i></a> ||| 
+			<a href="@Url.Action("Delete", "Loais", new { id = item.MaLoai })"><i style="font-size: 36px;" class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

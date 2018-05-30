@@ -1,0 +1,153 @@
+﻿@model IEnumerable<MobileWorld.Entities.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+	.table>tr>th{
+		width: 200px;
+	}
+</style>
+
+<h1 style="color: red;">Sản phẩm</h1>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Chi tiết bảo hành
+        </th>
+        <th>
+            Nội dung khuyến mãi
+        </th>
+        <th>
+            Tên loại
+        </th>
+        <th>
+            Nhãn Hiệu
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Thân máy
+        </th>
+        <th>
+            Màn hình
+        </th>
+        <th>
+            Hệ điều hành
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPU)
+        </th>
+        <th>
+            Bộ nhớ trong
+        </th>
+        <th>
+            Bộ nhớ ngoài
+        </th>
+        <th>
+            Camera chính
+        </th>
+        <th>
+            Camera phụ
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pin)
+        </th>
+        <th>
+            Âm thanh
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Màu sắc
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Ngày nhập
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaoHanh.ChiTietBH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KhuyenMai.NoiDungKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loai.TenLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhanHieu.TenNhanHieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanMay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManHinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HDH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoNhoTrong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoNhoNgoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CameraChinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CameraPhu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmThanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhAnh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MauSac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayNhap)
+        </td>
+		<td>
+			<a href="@Url.Action("Edit", "SanPhams", new { id = item.MaSP })"><i style="font-size: 36px;" class="fa fa-edit"></i></a> |||
+			<a href="@Url.Action("Delete", "SanPhams", new { id = item.MaSP })"><i style="font-size: 36px;" class="fa fa-trash"></i></a>
+		</td>
+    </tr>
+}
+
+</table>

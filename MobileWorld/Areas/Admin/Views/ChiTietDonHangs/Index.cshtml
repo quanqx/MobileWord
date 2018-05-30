@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MobileWorld.Entities.ChiTietDonHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="color: red;">Loại</h1>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DonHang.Email)
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonHang.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+		<td>
+			<a href="@Url.Action("Edit", "BaoHanhs", new { id = item.MaDonHang })"><i style="font-size: 36px;" class="fa fa-edit"></i></a> |||
+			<a href="@Url.Action("Delete", "BaoHanhs", new { id = item.MaDonHang })"><i style="font-size: 36px;" class="fa fa-trash"></i></a>
+		</td>
+    </tr>
+}
+
+</table>
